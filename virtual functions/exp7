@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+class Employee {
+public:
+    virtual double calculatePay() = 0;  // Pure virtual function
+};
+
+class Manager : public Employee {
+    double salary;
+public:
+    Manager(double s) : salary(s) {}
+    double calculatePay() override {
+        return salary;
+    }
+};
+
+class Engineer : public Employee {
+    double hourlyRate;
+    int hoursWorked;
+public:
+    Engineer(double rate, int hours) : hourlyRate(rate), hoursWorked(hours) {}
+    double calculatePay() override {
+        return hourlyRate * hoursWorked;
+    }
+};
+
+int main() {
+    Manager m(5000);
+    Engineer e(50, 160);
+
+    cout << "Manager pay: " << m.calculatePay() << endl;
+    cout << "Engineer pay: " << e.calculatePay() << endl;
+
+    return 0;
+}
