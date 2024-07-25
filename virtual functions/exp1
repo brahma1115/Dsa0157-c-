@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+class Person {
+public:
+    virtual void work() = 0;  // Pure virtual function
+};
+
+class Employee : public Person {
+public:
+    void work() override {
+        cout << "Employee working" << endl;
+    }
+};
+
+class Manager : public Person {
+public:
+    void work() override {
+        cout << "Manager working" << endl;
+    }
+};
+
+int main() {
+    Employee e;
+    Manager m;
+
+    e.work();
+    m.work();
+
+    return 0;
+}
