@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    virtual void eat() = 0;  // Pure virtual function
+};
+
+class Herbivore : public Animal {
+public:
+    void eat() override {
+        cout << "Eating plants" << endl;
+    }
+};
+
+class Carnivore : public Animal {
+public:
+    void eat() override {
+        cout << "Eating meat" << endl;
+    }
+};
+
+int main() {
+    Herbivore h;
+    Carnivore c;
+
+    h.eat();
+    c.eat();
+
+    return 0;
+}
