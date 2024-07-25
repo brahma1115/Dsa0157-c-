@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+class Person {
+public:
+    virtual void greet() = 0;  // Pure virtual function
+};
+
+class Student : public Person {
+public:
+    void greet() override {
+        cout << "Hello, I'm a student" << endl;
+    }
+};
+
+class Teacher : public Person {
+public:
+    void greet() override {
+        cout << "Hello, I'm a teacher" << endl;
+    }
+};
+
+int main() {
+    Student s;
+    Teacher t;
+
+    s.greet();
+    t.greet();
+
+    return 0;
+}
